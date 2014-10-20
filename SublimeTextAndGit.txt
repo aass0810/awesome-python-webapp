@@ -34,7 +34,55 @@ git commit -m "remove test.txt"	#版本库中删除该文件
 ssh-keygen -t rsa -C "youremail@example.com"		#创建SSH Key。在用户主目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有id_rsa和id_rsa.pub这两个文件
 git remote add origin https://github.com/aass0810/awesome-python-webapp.git
 git push -u origin master
+git clone git@github.com:Ueser/Git仓库名称	#克隆
+git checkout -b dev				#创建dev分支，git checkout命令加上-b参数表示创建并切换
+git branch dev					#查看当前分支
+git checkout master				#切换回master分支
+git merge dev					#命令用于合并指定分支到当前分支
+git branch -d dev				#删除dev分支
 
+/***
+
+查看分支：git branch
+创建分支：git branch name
+切换分支：git checkout name
+创建+切换分支：git checkout -b name
+合并某分支到当前分支：git merge name
+删除分支：git branch -d name
+
+***/
+git stash						#把当前工作现场“储藏”起来
+git stash list					#查看工作现场
+git stash apply					#恢复
+git stash drop					#删除
+git stash pop					#恢复并删除
+git remote						#查看远程库的信息，远程仓库的默认名称是origin。
+git remote -v					#显示更详细的信息
+git push origin master/dev		#推送分支
+git checkout -b dev origin/dev	#创建远程origin的dev分支到本地，于是他用这个命令创建本地dev分支
+git pull						#抓取分支
+git tag v1.0					#创建标签
+git log --pretty=oneline --abbrev-commit		#查看commit
+git show tagname								#查看标签信息
+git tag -a v0.1 -m "version 0.1 released" 3628164		#-a指定标签名，-m指定说明文字
+git tag -d v0.1 				#删除标签
+git push origin tagname：		#推送某个标签到远程
+git push origin --tags			#一次性推送全部尚未推送到远程的本地标签
+
+/***
+删除远程标签
+如果标签已经推送到远程，要删除远程标签就麻烦一点，先从本地删除：
+$ git tag -d v0.9
+Deleted tag 'v0.9' (was 6224937)
+然后，从远程删除。删除命令也是push，但是格式如下：
+$ git push origin :refs/tags/v0.9
+To git@github.com:michaelliao/learngit.git
+ - [deleted]         v0.9
+***/
+
+git config --global color.ui true		#Git显示颜色
+https://github.com/github/gitignore		#忽略特殊文件
+git config --global alias.st status		#配置别名
 
 Sublime Text
 
